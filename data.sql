@@ -16,10 +16,12 @@ create table Kolcsonzo
 
 create table Konyv
 (
-    id   int auto_increment
+    id         int auto_increment
         primary key,
-    cim  varchar(251) null,
-    isbn varchar(13)  null,
+    cim        varchar(251)  null,
+    isbn       varchar(13)   null,
+    borito_url varchar(250)  null,
+    tartalom   varchar(1000) null,
     constraint Konyv_isbn_uindex
         unique (isbn)
 );
@@ -70,6 +72,17 @@ create table Szerzo_Konyv
         foreign key (szerzo_id) references Szerzo (id)
             on update cascade on delete cascade
 );
+
+create table felhasznalo
+(
+    id              int auto_increment
+        primary key,
+    fehasznalo_neve varchar(250) null,
+    jelszo          varchar(50)  null,
+    constraint felhasznalo_fehasznalo_neve_uindex
+        unique (fehasznalo_neve)
+);
+
 
 
 

@@ -5,7 +5,7 @@ body {
 
 }
 
-h1 {
+h1, h2,h3,h4,h5,h6 {
     font-family: 'Permanent Marker', cursive;
 }
 
@@ -17,6 +17,11 @@ hr {
 
 .btn {
     color: white !important;
+    background: #2e72ea;
+}
+
+.btn:hover {
+    color: #1b1e21 !important;
 }
 
 .jumbotron {
@@ -83,6 +88,10 @@ img {
         width: 100%;
     }
 }
+
+
+
+
 
 
 
