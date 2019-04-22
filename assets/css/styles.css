@@ -1,0 +1,90 @@
+
+body {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+
+}
+
+h1 {
+    font-family: 'Permanent Marker', cursive;
+}
+
+hr {
+    width: 100%;
+    color: blue;
+    height: 1px;
+}
+
+.btn {
+    color: white !important;
+}
+
+.jumbotron {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+i {
+    margin-right: 12px;
+}
+
+#navigation-bar {
+    background-color: rgb(225, 224, 195);
+    width: 100%;
+    margin: 0 auto 40px;
+}
+
+p {
+    text-align: justify;
+    font-family: 'Goudy Bookletter 1911', serif;
+
+}
+
+
+.row.books {
+    height: 200px;
+}
+
+.card {
+    height: 200px;
+}
+
+.hr {
+    background-color: #7876e6;
+    height: 2px;
+}
+
+img {
+    max-height: 200px;
+}
+
+.form {
+    border-radius: 2%;
+    padding: 15px;
+    background-color: #f7f5f5;
+    box-shadow: -4px 0 2px -2px rgba(0, 0, 0, 0.4);
+    width: 40vw;
+    margin: 0 auto;
+}
+
+
+.form-control.input {
+    width: 50%;
+    border: 1px solid blue;
+}
+
+@media screen and (max-width: 767px) {
+    .form {
+        width: 100%;
+
+    }
+
+    .form-control.input {
+        width: 100%;
+    }
+}
+
+
+
+
+

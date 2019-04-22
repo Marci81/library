@@ -1,7 +1,7 @@
 # Feladat
 
 1. Működő weboldal **MVC** keretrendszerben.
-2. A kapcsolódó adatmodell legalább **9 táblát** tartalmaz.
+2. ~~A kapcsolódó adatmodell legalább **9 táblát** tartalmaz.~~(8 van jelenleg)
 3. Adminisztrációs felület + publikus felület.
 4.Felhasználók kezelése: A weboldal szolgáltatásai (vagy annak bizonyos rétege) csak **előzetes
 bejelentkeztetés** után, a megfelelő jogosultság birtoklásával érhető el. A beadandó feladatban legalább két jogosultsági szint megkülönböztetése:
