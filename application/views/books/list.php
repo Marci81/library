@@ -24,7 +24,7 @@
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="#all-books">Összes
                             könyv</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Új Könyv</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?=site_url('books/add')?>">Új Könyv</a></li>
                 </ul>
                 <span class="navbar-text actions">
                     <a class="login" href="#">Bejelentkezés</a>

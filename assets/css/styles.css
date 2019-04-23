@@ -31,6 +31,7 @@ hr {
 
 i {
     margin-right: 12px;
+    margin-left: 8px;
 }
 
 #navigation-bar {
@@ -79,11 +80,11 @@ img {
 
 
 .form-control.input {
-    width: 50%;
+    width: 75%;
     border: 1px solid blue;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 900px) {
     .form {
         width: 100%;
 

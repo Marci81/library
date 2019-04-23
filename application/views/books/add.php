@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
     <title>Kölcsönzés</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
@@ -27,58 +28,51 @@
             <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link active" href="<?= base_url('') ?>">Összes
                         könyv</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="<?=site_url('books/add')?>">Új Könyv</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#">Új Könyv</a></li>
             </ul>
             <span class="navbar-text actions"> <a class="login" href="#">Bejelentkezés</a><a
                         class="btn btn-light action-button" role="button" href="#">Regisztráció</a></span></div>
     </div>
 </nav>
-<div id="empresa" style="padding:20px;margin:1px;">
+<form class="form">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-5 col-lg-5"><img
-                        src="<?= $konyv['borito_url'] ?>"></div>
-            <div class="col-sm-6 col-md-7 col-lg-7">
-                <h2><?= $konyv['cim'] ?></h2>
-                <p><?= $konyv['tartalom'] ?></p>
-            </div>
-        </div>
-    </div>
-    <div style="margin-top: 10px ">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3"><strong>Szerző(k)</strong>
-                    <?php foreach ($szerzok as $szerzo): ?>
-                        <p><?= $szerzo['szerzo_neve'] ?></p>
-                    <?php endforeach; ?>
-                </div>
-                <div class="col-md-3"><strong>ISBN</strong>
-                    <p><?= $konyv['isbn'] ?></p>
-                </div>
-                <div class="col-md-3"><strong>Kategória</strong>
-                    <?php foreach ($kategoriak as $kategoria): ?>
-                        <p><?= $kategoria['kategoria_neve'] ?></p>
-                    <?php endforeach; ?>
-                </div>
-                <div class="col-md-3"><strong>Kölcsönözhető</strong>
-                    <p class="pulse">IGEN</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="text-center bg-secondary border rounded border-dark pulse" data-bs-hover-animate="pulse"
-                        style="margin-top: 15px;">Kölcsönzés</h3>
-                </div>
-                <div class="col-md-6"></div>
-            </div>
-        </div>
-    </div>
-</div>
+        <h1>Új Könyv</h1>
+        <hr style="width: 50% ; text-align: left; margin-left: 0">
 
+        <div class="form-group">
+            <label>Cím</label>
+            <input class="form-control input" type="text" placeholder="Harry Potter">
+        </div>
+
+        <div class="form-group">
+            <label>Szerző</label>
+            <input class="form-control input" type="text" placeholder="J.K.Rowling">
+        </div>
+
+        <div class="form-group">
+            <label>ISBN</label>
+            <input class="form-control input" type="text" placeholder="1234567891234" ">
+        </div>
+
+        <div class="form-group">
+            <label>Kategória</label>
+            <input class="form-control input" type="text" placeholder="Akcio" ">
+        </div>
+
+        <div class="form-group">
+            <label>Borítókép URL</label>
+            <input class="form-control input" type="url" placeholder="https://images.gr-assets.com/books/1474154022l/3.jpg" ">
+        </div>
+
+        <div class="form-group">
+            <label>Tartalom</label>
+            <textarea class="form-control input" id="" cols="30" rows="10"></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="button">Kész</button>
+
+    </div>
+</form>
 <script src="/../assets/js/jquery.min.js"></script>
 <script src="/../assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="/../assets/js/bs-animation.js"></script>

@@ -48,16 +48,34 @@ class Books extends CI_Controller
         if($id== NULL){
             show_404();
         }
-//
-//        $record = $this->books_model->get_record($id);
-//
-//        if(empty($record)){
-//            show_404();
-//        }
 
         $this->books_model->delete($id);
         redirect('/books','refresh');
     }
+
+    public function add(){
+
+        $this->load->helper('form');
+
+        $this->load->library('form_validation');
+
+        //TODO az insertelés
+        $this->form_validation->set_rules('cim','Cím','required');
+
+
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('books/add');
+        }
+        else{
+            $this->news_model->add();
+            redirect('/books','refresh');
+        }
+
+
+
+    }
+
+
 
 }
 
