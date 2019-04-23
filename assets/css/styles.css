@@ -40,9 +40,14 @@ i {
 }
 
 p {
+    font-size: 20px ;
     text-align: justify;
     font-family: 'Goudy Bookletter 1911', serif;
 
+}
+
+.jumbotron .p {
+   font-size: 1.5rem;
 }
 
 
@@ -87,6 +92,10 @@ img {
     .form-control.input {
         width: 100%;
     }
+}
+
+.login {
+    padding: 20px;
 }
 
 

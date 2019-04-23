@@ -22,6 +22,28 @@ class Books extends CI_Controller
 
         $this->load->view('books/list', $data);
     }
+
+    public function show($id = null)
+    {
+        if ($id == null) {
+            show_error('Az oldal nem létezik');
+        }
+
+        $konyv = $this->books_model->get_record('Konyv', $id);
+        $szerzok = $this->books_model->get_szerzok($id);
+        $kategoriak = $this->books_model->get_kategoriak($id);
+
+
+        if (empty($konyv) || empty($szerzok) || empty($kategoriak)) {
+            show_404();
+        }
+
+        $data['kategoriak'] = $kategoriak;
+        $data['szerzok'] = $szerzok;
+        $data['konyv'] = $konyv;
+        $this->load->view('books/show', $data);
+    }
+
 }
 
 
