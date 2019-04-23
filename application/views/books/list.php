@@ -61,6 +61,9 @@
                         <a href="<?= site_url('books/' . $item['id']) ?>">
                             <button class="btn btn-primary" type="button">Kölcsönzés</button>
                         </a>
+                        <a href="<?= site_url('books/delete/' . $item['id']) ?>">
+                            <button class="btn btn-danger" type="button">Törlés</button>
+                        </a>
                     </div>
                 </div>
                 <hr class="hr">

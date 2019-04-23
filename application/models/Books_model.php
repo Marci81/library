@@ -58,4 +58,8 @@ class Books_model extends CI_Model
         return $result;
     }
 
+    public function delete($id){
+        return $this->db->delete('Konyv', array('id' => $id));
+    }
+
 }

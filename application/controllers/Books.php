@@ -44,6 +44,21 @@ class Books extends CI_Controller
         $this->load->view('books/show', $data);
     }
 
+    public function delete($id = NULL){
+        if($id== NULL){
+            show_404();
+        }
+//
+//        $record = $this->books_model->get_record($id);
+//
+//        if(empty($record)){
+//            show_404();
+//        }
+
+        $this->books_model->delete($id);
+        redirect('/books','refresh');
+    }
+
 }
 
 
