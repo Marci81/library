@@ -34,9 +34,9 @@ class Books extends CI_Controller
         $kategoriak = $this->books_model->get_kategoriak($id);
 
 
-        if (empty($konyv) || empty($szerzok) || empty($kategoriak)) {
-            show_404();
-        }
+//        if (empty($konyv) || empty($szerzok) || empty($kategoriak)) {
+//            show_404();
+//        }
 
         $data['kategoriak'] = $kategoriak;
         $data['szerzok'] = $szerzok;
@@ -59,7 +59,6 @@ class Books extends CI_Controller
 
         $this->load->library('form_validation');
 
-        //TODO az insertelés
         $this->form_validation->set_rules('cim','Cím','required');
 
 
@@ -67,7 +66,7 @@ class Books extends CI_Controller
             $this->load->view('books/add');
         }
         else{
-            $this->news_model->add();
+            $this->books_model->add();
             redirect('/books','refresh');
         }
 

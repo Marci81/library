@@ -33,11 +33,11 @@ class Books_model extends CI_Model
     public function get_szerzok($konyv_id)
     {
 
-        $query= $this->db
+        $query = $this->db
             ->select('szerzo_neve')
             ->from('Szerzo')
-            ->join('Szerzo_Konyv SK', 'Szerzo.id=SK.szerzo_id','LEFT')
-            ->where('konyv_id='.$konyv_id)
+            ->join('Szerzo_Konyv SK', 'Szerzo.id=SK.szerzo_id', 'LEFT')
+            ->where('konyv_id=' . $konyv_id)
             ->get();
 
         $result = $query->result_array();
@@ -47,24 +47,158 @@ class Books_model extends CI_Model
     public function get_kategoriak($konyv_id)
     {
 
-        $query= $this->db
+        $query = $this->db
             ->select('kategoria_neve')
             ->from('Kategoria')
-            ->join('Kategoria_Konyv KK', 'Kategoria.id=KK.kategoria_id','LEFT')
-            ->where('konyv_id='.$konyv_id)
+            ->join('Kategoria_Konyv KK', 'Kategoria.id=KK.kategoria_id', 'LEFT')
+            ->where('konyv_id=' . $konyv_id)
             ->get();
 
         $result = $query->result_array();
         return $result;
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         return $this->db->delete('Konyv', array('id' => $id));
     }
 
     public function add()
     {
-        
+
+        $this->loadAddHelpers();
+
+        $this->addtoBook();
+
+        $this->addAuthor();
+
+        $this->addCategory();
+
+        $this->joinSzerzoToKonyv();
+
+
+        $query = $this->db->get_where
+        (
+            'Kategoria',
+            array(
+                'kategoria_neve' => $this->input->post('kategoria_neve')
+            )
+        );
+        $result_record = $query->row_array();
+
+        $query = $this->db->get_where
+        (
+            'Konyv',
+            array(
+                'cim' => $this->input->post('cim')
+            )
+        );
+        $result_record2 = $query->row_array();
+
+        $szerzo_konyv = array(
+
+            'konyv_id' => $result_record2['id'],
+            'kategoria_id' => $result_record['id'],
+
+        );
+
+
+        $this->db->insert('Kategoria_Konyv', $szerzo_konyv);
+
+
     }
+
+    private
+    function checkRecordExist($tableName, $value1, $value2DB)
+    {
+        $this->db->where($value1, $value2DB);
+        $query = $this->db->get($tableName);
+        if ($query->num_rows() > 0) {
+            return true;
+        } else return false;
+    }
+
+    public
+    function loadAddHelpers()
+    {
+        $this->load->helper('url');
+        $this->load->helper('text');
+    }
+
+    public
+    function addtoBook()
+    {
+        if ($this->checkRecordExist(
+                'Konyv',
+                'isbn',
+                $this->input->post('isbn')) == false) {
+
+            $konyv = array(
+                'cim' => $this->input->post('cim'),
+                'isbn' => $this->input->post('isbn'),
+                'borito_url' => $this->input->post('borito_url'),
+                'tartalom' => $this->input->post('tartalom')
+            );
+            $this->db->insert('Konyv', $konyv);
+
+        }
+    }
+
+    public
+    function addAuthor()
+    {
+        if ($this->checkRecordExist('Szerzo', 'szerzo_neve', $this->input->post('szerzo_neve')) == false) {
+
+            $szerzo = array(
+                'szerzo_neve' => $this->input->post('szerzo_neve')
+            );
+            $this->db->insert('Szerzo', $szerzo);
+        }
+    }
+
+    public
+    function addCategory()
+    {
+        if ($this->checkRecordExist('Kategoria', 'kategoria_neve', $this->input->post('kategoria_neve')) == false) {
+
+            $kategoria = array(
+                'kategoria_neve' => $this->input->post('kategoria_neve')
+            );
+            $this->db->insert('Kategoria', $kategoria);
+        }
+    }
+
+    public
+    function joinSzerzoToKonyv()
+    {
+        $query = $this->db->get_where
+        (
+            'Konyv',
+            array(
+                'cim' => $this->input->post('cim')
+            )
+        );
+        $result_record = $query->row_array();
+
+        $query = $this->db->get_where
+        (
+            'Szerzo',
+            array(
+                'szerzo_neve' => $this->input->post('szerzo_neve')
+            )
+        );
+        $result_record2 = $query->row_array();
+
+        $szerzo_konyv = array(
+
+            'konyv_id' => $result_record['id'],
+            'szerzo_id' => $result_record2['id'],
+
+        );
+
+
+        $this->db->insert('Szerzo_Konyv', $szerzo_konyv);
+    }
+
 
 }

@@ -18,6 +18,7 @@ hr {
 .btn {
     color: white !important;
     background: #2e72ea;
+    border: none;
 }
 
 .btn:hover {
@@ -81,7 +82,7 @@ img {
 
 .form-control.input {
     width: 75%;
-    border: 1px solid blue;
+    border: 1px solid #c9c8a7;
 }
 
 @media screen and (max-width: 900px) {
@@ -96,7 +97,7 @@ img {
 }
 
 .login {
-    padding: 20px;
+    padding: 20px 20px 20px 0px;
 }
 
 

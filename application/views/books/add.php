@@ -34,42 +34,42 @@
                         class="btn btn-light action-button" role="button" href="#">Regisztráció</a></span></div>
     </div>
 </nav>
-<form class="form">
+<form class="form" action="/books/add" method="post">
     <div class="container">
         <h1>Új Könyv</h1>
         <hr style="width: 50% ; text-align: left; margin-left: 0">
 
         <div class="form-group">
             <label>Cím</label>
-            <input class="form-control input" type="text" placeholder="Harry Potter">
+            <input class="form-control input" type="text" name="cim" placeholder="Harry Potter">
         </div>
 
         <div class="form-group">
             <label>Szerző</label>
-            <input class="form-control input" type="text" placeholder="J.K.Rowling">
+            <input class="form-control input" type="text" name="szerzo_neve" placeholder="J.K.Rowling">
         </div>
 
         <div class="form-group">
             <label>ISBN</label>
-            <input class="form-control input" type="text" placeholder="1234567891234" ">
+            <input class="form-control input" type="text" name="isbn" placeholder="1234567891234" ">
         </div>
 
         <div class="form-group">
             <label>Kategória</label>
-            <input class="form-control input" type="text" placeholder="Akcio" ">
+            <input class="form-control input" type="text" name="kategoria_neve" placeholder="Akcio" ">
         </div>
 
         <div class="form-group">
             <label>Borítókép URL</label>
-            <input class="form-control input" type="url" placeholder="https://images.gr-assets.com/books/1474154022l/3.jpg" ">
+            <input class="form-control input" type="text" name="borito_url" placeholder="https://images.gr-assets.com/books/1474154022l/3.jpg" ">
         </div>
 
         <div class="form-group">
             <label>Tartalom</label>
-            <textarea class="form-control input" id="" cols="30" rows="10"></textarea>
+            <textarea class="form-control input" id="" name="tartalom" cols="30" rows="10"></textarea>
         </div>
 
-        <button class="btn btn-primary" type="button">Kész</button>
+        <input  class="btn btn-primary" type="submit">
 
     </div>
 </form>

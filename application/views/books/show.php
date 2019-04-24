@@ -41,6 +41,7 @@
             <div class="col-sm-6 col-md-7 col-lg-7">
                 <h2><?= $konyv['cim'] ?></h2>
                 <p><?= $konyv['tartalom'] ?></p>
+                <hr>
             </div>
         </div>
     </div>
