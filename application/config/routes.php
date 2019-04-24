@@ -61,3 +61,4 @@ $route['books/(:any)'] = 'books/show/$1';
 
 
 $route['file/filewrite/'] = 'file/filewrite';
+$route['file/downloadFile/'] = 'file/downloadFile';

@@ -6,9 +6,11 @@ class File extends CI_Controller
 
     public function __construct()
     {
+
         parent::__construct();
 
         $this->load->helper('file');
+        $this->load->helper('download');
         $this->load->model('books_model');
     }
 
@@ -32,8 +34,13 @@ class File extends CI_Controller
         } else {
             echo 'Sikeres fájlba írás';
         }
-        redirect('/books/'.$id,'refresh');
+        redirect('/books/' . $id, 'refresh');
     }
 
+    public function downloadFile()
+    {
+
+        force_download('./out/file.php', NULL);
+    }
 
 }
