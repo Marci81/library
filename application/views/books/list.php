@@ -5,11 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Kölcsönzés</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="/../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/../assets/css/styles.css">
 </head>
 
 <body>
@@ -24,7 +25,8 @@
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="#all-books">Összes
                             könyv</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?=site_url('books/add')?>">Új Könyv</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?= site_url('books/add') ?>">Új
+                            Könyv</a></li>
                 </ul>
                 <span class="navbar-text actions">
                     <a class="login" href="#">Bejelentkezés</a>
@@ -75,9 +77,24 @@
     <?php endforeach; ?>
 <?php endif; ?>
 
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <a class="nav-link" href="<?= site_url('books/add') ?>"><h3
+                            class="text-center bg-secondary border rounded border-dark pulse"
+                            data-bs-hover-animate="pulse"
+                            style="margin-top: 15px;">Új Könyv</h3></a></li>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="/../assets/js/jquery.min.js"></script>
+<script src="/../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/../assets/js/bs-animation.js"></script>
 </body>
 
 </html>

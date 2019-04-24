@@ -27,7 +27,8 @@
             <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link active" href="<?= base_url('') ?>">Összes
                         könyv</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="<?=site_url('books/add')?>">Új Könyv</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="<?= site_url('books/add') ?>">Új
+                        Könyv</a></li>
             </ul>
             <span class="navbar-text actions"> <a class="login" href="#">Bejelentkezés</a><a
                         class="btn btn-light action-button" role="button" href="#">Regisztráció</a></span></div>
@@ -74,7 +75,14 @@
                     <h3 class="text-center bg-secondary border rounded border-dark pulse" data-bs-hover-animate="pulse"
                         style="margin-top: 15px;">Kölcsönzés</h3>
                 </div>
-                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <a href="<?= site_url('file/fileWrite/'.$konyv['id'])?>">
+                        <h3 class="text-center bg-secondary border rounded border-dark pulse"
+                            data-bs-hover-animate="pulse"
+                            style="margin-top: 15px;">Kiirás Fájlba
+                        </h3>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

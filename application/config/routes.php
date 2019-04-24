@@ -58,3 +58,6 @@ $route['books/edit'] = 'books/edit';
 $route['books/update'] = 'books/update';
 $route['books/delete/(:any)'] = 'books/delete/$1';
 $route['books/(:any)'] = 'books/show/$1';
+
+
+$route['file/filewrite/'] = 'file/filewrite';

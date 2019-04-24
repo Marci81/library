@@ -34,9 +34,9 @@ class Books extends CI_Controller
         $kategoriak = $this->books_model->get_kategoriak($id);
 
 
-        if (empty($konyv) || empty($szerzok) || empty($kategoriak)) {
-            show_404();
-        }
+//        if (empty($konyv) || empty($szerzok) || empty($kategoriak)) {
+//            show_404();
+//        }
 
         $data['kategoriak'] = $kategoriak;
         $data['szerzok'] = $szerzok;
