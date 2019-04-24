@@ -54,5 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['books/add'] = 'books/add';
+$route['books/edit'] = 'books/edit';
+$route['books/update'] = 'books/update';
 $route['books/delete/(:any)'] = 'books/delete/$1';
 $route['books/(:any)'] = 'books/show/$1';

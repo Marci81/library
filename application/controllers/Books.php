@@ -34,9 +34,9 @@ class Books extends CI_Controller
         $kategoriak = $this->books_model->get_kategoriak($id);
 
 
-//        if (empty($konyv) || empty($szerzok) || empty($kategoriak)) {
-//            show_404();
-//        }
+        if (empty($konyv) || empty($szerzok) || empty($kategoriak)) {
+            show_404();
+        }
 
         $data['kategoriak'] = $kategoriak;
         $data['szerzok'] = $szerzok;
@@ -70,11 +70,39 @@ class Books extends CI_Controller
             redirect('/books','refresh');
         }
 
-
-
     }
 
 
+    public function edit($id = NULL)
+    {
+        if($id== NULL){
+            show_404();
+        }
+        $this->load->helper('form');
+
+        $this->load->library('form_validation');
+
+
+            $konyv = $this->books_model->get_record('Konyv', $id);
+            $szerzok = $this->books_model->get_szerzok($id);
+            $kategoriak = $this->books_model->get_kategoriak($id);
+
+            $data['kategoriak'] = $kategoriak;
+            $data['szerzok'] = $szerzok;
+            $data['konyv'] = $konyv;
+
+            $this->load->view('books/edit',$data);
+    }
+
+    public function update($id= NULL)
+    {
+        if($id== NULL){
+            show_404();
+        }
+        $this->books_model->update($id);
+        redirect('/books','refresh');
+
+    }
 
 }
 

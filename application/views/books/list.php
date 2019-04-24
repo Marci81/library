@@ -64,6 +64,9 @@
                         <a href="<?= site_url('books/delete/' . $item['id']) ?>">
                             <button class="btn btn-danger" type="button">Törlés</button>
                         </a>
+                        <a href="<?= site_url('books/edit/' . $item['id']) ?>">
+                            <button class="btn btn-info" type="button">Szerkeszt</button>
+                        </a>
                     </div>
                 </div>
                 <hr class="hr">
