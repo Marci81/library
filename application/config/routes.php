@@ -59,6 +59,7 @@ $route['books/update'] = 'books/update';
 $route['books/delete/(:any)'] = 'books/delete/$1';
 $route['books/(:any)'] = 'books/show/$1';
 
+$route['users'] = 'users';
 
 $route['file/filewrite/'] = 'file/filewrite';
 $route['file/downloadFile/'] = 'file/downloadFile';

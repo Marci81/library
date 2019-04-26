@@ -24,13 +24,16 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" href="#all-books">Összes könyv</a>
+                        <a class="nav-link active" href=""<?= base_url('') ?>">Összes könyv</a>
                     </li>
 
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?= site_url('books/add') ?>">Új Könyv</a>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?= site_url('books/add') ?>">Új
+                            Könyv</a>
                     </li>
 
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?= site_url('users') ?>">Felhasználók</a>
+                    <li class="nav-item" role="presentation"><a class="nav-link"
+                                                                href="<?= site_url('file/downloadFile') ?>">Forrás Kód
+                            Letöltése</a>
                     </li>
 
                 </ul>
@@ -42,60 +45,79 @@
         </div>
     </nav>
 </div>
-<div class="container">
-    <div class="jumbotron">
-        <h1>Nem tudod hogy mit olvass ?</h1>
-        <p class="p">Mindenképpen nézz körül nálunk!</p>
-        <p><a class="btn btn-primary" role="button" href="#all-books">Összes Könyv</a></p>
-    </div>
-</div>
 
-<?php if ($items != null && !empty($items)): ?>
+<?php if ($users != null && !empty($users)): ?>
 
-    <div class="container " id="all-books">
+    <div class="container users-headings ">
+
+        <div class="row">
+
+            <div class="col-md-2">
+                <h5>Felhasználónév</h5>
+            </div>
+            <div class="col-md-2">
+                <h5>Admin</h5>
+            </div>
+            <div class="col-md-2">
+                <h5>Kölcsönzönév</h5>
+            </div>
+            <div class="col-md-2">
+                <h5></h5>
+            </div>
+            <div class="col-md-2">
+                <h5></h5>
+            </div>
+            <div class="col-md-2">
+                <h5></h5>
+            </div>
+        </div>
+
         <hr class="hr">
+
     </div>
-    <?php foreach ($items as $item): ?>
+    <?php foreach ($users as $user): ?>
         <div class="szekcio">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-5 col-lg-5"><img
-                                src="<?= $item['borito_url'] ?>"></div>
-                    <div class="col-sm-6 col-md-7 col-lg-7">
 
-                        <h2><?= $item['cim'] ?></h2>
-                        <p><?= $item['tartalom'] ?></p>
+                <div class="row user-info">
 
-                        <a href="<?= site_url('books/' . $item['id']) ?>">
-                            <button class="btn btn-primary" type="button">Kölcsönzés</button>
-                        </a>
-                        <a href="<?= site_url('books/delete/' . $item['id']) ?>">
-                            <button class="btn btn-danger" type="button">Törlés</button>
-                        </a>
-                        <a href="<?= site_url('books/edit/' . $item['id']) ?>">
-                            <button class="btn btn-info" type="button">Szerkeszt</button>
-                        </a>
+                    <div class="col-md-2">
+                        <p><?= $user['felhasznalo_neve'] ?></p>
                     </div>
+
+                    <div class="col-md-2">
+                        <?php if ($user['admin'] == 1) : ?>
+                            <p>igen</p>
+                        <?php else: ?>
+                            <p>nem</p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="col-md-2">
+                        <p><?= $kolcsonzo[$user['kolcsonzo_id']-1]['kolcsonzo_neve'] ?></p>
+                    </div>
+
+                    <div class="col-md-2">
+                        <a href=""><p>Kölcsönzések</p></a>
+                    </div>
+
+                    <div class="col-md-2">
+                        <a href=""><p>Szerkeszt</p></a>
+                    </div>
+
+                    <div class="col-md-2">
+                        <a href=""> <p>Törlés</p></a>
+                    </div>
+
+
                 </div>
+
                 <hr class="hr">
+
             </div>
         </div>
     <?php endforeach; ?>
 <?php endif; ?>
 
-<div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6">
-                <a class="nav-link" href="<?= site_url('books/add') ?>"><h3
-                            class="text-center bg-secondary border rounded border-dark pulse"
-                            data-bs-hover-animate="pulse"
-                            style="margin-top: 15px;">Új Könyv</h3></a></li>
-            </div>
-        </div>
-    </div>
-</div>
 
 <footer>
     <div class="container">
@@ -104,12 +126,14 @@
                 <h5>Források</h5>
                 <hr class="nav-hr">
                 <p><a href="<?= site_url('file/downloadFile') ?>"><i class="fas fa-code"></i>Forrás kód</p></a>
-                <p><a target="_blank" href="https://github.com/Marci81/library"><i class="fab fa-github"></i>GitHub</p></a>
+                <p><a target="_blank" href="https://github.com/Marci81/library"><i class="fab fa-github"></i>GitHub
+                </p></a>
             </div>
             <div class="col-md-3">
                 <h5>Készítette</h5>
                 <hr class="nav-hr">
-                <p><a target="_blank" href="https://github.com/Marci81"><i class="far fa-paper-plane" ></i> Marci</p></a>
+                <p><a target="_blank" href="https://github.com/Marci81"><i class="far fa-paper-plane"></i> Marci
+                </p></a>
             </div>
 
 
