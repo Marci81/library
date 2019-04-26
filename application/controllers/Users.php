@@ -25,4 +25,22 @@ class Users extends CI_Controller
         $this->load->view('users/list', $data);
     }
 
+    public function register()
+    {
+        $this->load->helper('form');
+
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('cim','Cím','required');
+
+
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('users/register');
+        }
+        else{
+            $this->users_model->add();
+            redirect('/books','refresh');
+        }
+    }
+
 }
