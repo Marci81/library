@@ -45,7 +45,6 @@ class Users_model extends CI_Model
             'felhasznalo_neve' => $this->input->post('felhasznalo_neve'),
             'jelszo' => $this->input->post('jelszo'),
             'admin' => 0,
-            'tartalom' => $this->input->post('tartalom'),
             'kolcsonzo_id' => $result_record['id']
         );
         $this->db->insert('felhasznalo', $felhasznalo);
