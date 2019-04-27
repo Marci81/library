@@ -255,5 +255,23 @@ class Books_model extends CI_Model
 
     }
 
+    public function rent()
+    {
+        $date = date("Y-m-d");
+        $date = strtotime(date("Y-m-d", strtotime($date)) . " +1 month");
+        $date = date("Y-m-d",$date);
+
+        $kolcsonzes = array(
+
+            'konyv_id' => $this->input->post('konyv_id'),
+            //TODO authentikáció kész megcsinálni
+            'kolcsonzo_id' => 1,
+            'tol'=>date("Y-m-d"),
+            'ig'=>$date
+
+        );
+        $this->db->insert('Kolcsonzes', $kolcsonzes);
+    }
+
 
 }

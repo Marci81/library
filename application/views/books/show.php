@@ -41,11 +41,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
+                    <form action="/books/rent" method="post">
+                    <input type="submit" class="submit"  name="konyv_id" value="<?= $konyv['id'] ?>">
+                    </form>
+
                     <h3 class="text-center bg-secondary border rounded border-dark pulse" data-bs-hover-animate="pulse"
                         style="margin-top: 15px;">Kölcsönzés</h3>
                 </div>
                 <div class="col-md-6">
-                    <a href="<?= site_url('file/fileWrite/'.$konyv['id'])?>">
+                    <a href="<?= site_url('file/fileWrite/' . $konyv['id']) ?>">
                         <h3 class="text-center bg-secondary border rounded border-dark pulse"
                             data-bs-hover-animate="pulse"
                             style="margin-top: 15px;">Kiirás Fájlba
@@ -56,6 +60,7 @@
         </div>
     </div>
 </div>
+
 
 <?php $this->load->view('partials/footer'); ?>
 

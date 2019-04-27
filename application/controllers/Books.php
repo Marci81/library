@@ -33,41 +33,37 @@ class Books extends CI_Controller
         $szerzok = $this->books_model->get_szerzok($id);
         $kategoriak = $this->books_model->get_kategoriak($id);
 
-
-//        if (empty($konyv) || empty($szerzok) || empty($kategoriak)) {
-//            show_404();
-//        }
-
         $data['kategoriak'] = $kategoriak;
         $data['szerzok'] = $szerzok;
         $data['konyv'] = $konyv;
         $this->load->view('books/show', $data);
     }
 
-    public function delete($id = NULL){
-        if($id== NULL){
+    public function delete($id = NULL)
+    {
+        if ($id == NULL) {
             show_404();
         }
 
         $this->books_model->delete($id);
-        redirect('/books','refresh');
+        redirect('/books', 'refresh');
     }
 
-    public function add(){
+    public function add()
+    {
 
         $this->load->helper('form');
 
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('cim','Cím','required');
+        $this->form_validation->set_rules('cim', 'Cím', 'required');
 
 
-        if($this->form_validation->run() == FALSE){
+        if ($this->form_validation->run() == FALSE) {
             $this->load->view('books/add');
-        }
-        else{
+        } else {
             $this->books_model->add();
-            redirect('/books','refresh');
+            redirect('/books', 'refresh');
         }
 
     }
@@ -75,7 +71,7 @@ class Books extends CI_Controller
 
     public function edit($id = NULL)
     {
-        if($id== NULL){
+        if ($id == NULL) {
             show_404();
         }
         $this->load->helper('form');
@@ -83,26 +79,34 @@ class Books extends CI_Controller
         $this->load->library('form_validation');
 
 
-            $konyv = $this->books_model->get_record('Konyv', $id);
-            $szerzok = $this->books_model->get_szerzok($id);
-            $kategoriak = $this->books_model->get_kategoriak($id);
+        $konyv = $this->books_model->get_record('Konyv', $id);
+        $szerzok = $this->books_model->get_szerzok($id);
+        $kategoriak = $this->books_model->get_kategoriak($id);
 
-            $data['kategoriak'] = $kategoriak;
-            $data['szerzok'] = $szerzok;
-            $data['konyv'] = $konyv;
+        $data['kategoriak'] = $kategoriak;
+        $data['szerzok'] = $szerzok;
+        $data['konyv'] = $konyv;
 
-            $this->load->view('books/edit',$data);
+        $this->load->view('books/edit', $data);
     }
 
-    public function update($id= NULL)
+    public function update($id = NULL)
     {
-        if($id== NULL){
+        if ($id == NULL) {
             show_404();
         }
         $this->books_model->update($id);
-        redirect('/books','refresh');
+        redirect('/books', 'refresh');
 
     }
+
+    public function rent()
+    {
+        $this->books_model->rent();
+        redirect('/books', 'refresh');
+
+    }
+
 
 }
 

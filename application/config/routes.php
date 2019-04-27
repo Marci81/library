@@ -57,6 +57,7 @@ $route['books/add'] = 'books/add';
 $route['books/edit'] = 'books/edit';
 $route['books/update'] = 'books/update';
 $route['books/delete/(:any)'] = 'books/delete/$1';
+$route['books/rent'] = 'books/rent';
 $route['books/(:any)'] = 'books/show/$1';
 
 $route['users'] = 'users';
