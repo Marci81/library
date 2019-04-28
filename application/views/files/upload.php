@@ -5,7 +5,7 @@
 
 <form class="form" action="<?= site_url('file/uploadFile') ?>" method="post" enctype="multipart/form-data">
 
-    <h1>Fájl feltöltés</h1>
+    <h1>Borítókép feltöltés</h1>
     <hr style="width: 50% ; text-align: left; margin-left: 0">
 
     <div class="form-group">

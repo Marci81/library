@@ -64,5 +64,6 @@ $route['users'] = 'users';
 $route['users/register'] = 'users/register';
 
 $route['file/filewrite/'] = 'file/filewrite';
+$route['file/fileread/'] = 'file/fileread';
 $route['file/upload/'] = 'file/upload';
 $route['file/downloadFile/'] = 'file/downloadFile';

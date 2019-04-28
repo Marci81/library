@@ -34,6 +34,12 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="<?= site_url('users') ?>">Felhasználók</a>
                     </li>
 
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?= site_url('file/fileread') ?>">Fájlból új könyv</a>
+                    </li>
+
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?= site_url('file/upload') ?>">Fájl feltöltés</a>
+                    </li>
+
                 </ul>
                 <span class="navbar-text actions">
                     <a class="login" href="#">Bejelentkezés</a>

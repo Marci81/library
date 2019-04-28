@@ -259,18 +259,36 @@ class Books_model extends CI_Model
     {
         $date = date("Y-m-d");
         $date = strtotime(date("Y-m-d", strtotime($date)) . " +1 month");
-        $date = date("Y-m-d",$date);
+        $date = date("Y-m-d", $date);
 
         $kolcsonzes = array(
 
             'konyv_id' => $this->input->post('konyv_id'),
             //TODO authentikáció kész megcsinálni
             'kolcsonzo_id' => 1,
-            'tol'=>date("Y-m-d"),
-            'ig'=>$date
+            'tol' => date("Y-m-d"),
+            'ig' => $date
 
         );
         $this->db->insert('Kolcsonzes', $kolcsonzes);
+    }
+
+    public function uj_konyv($isbn,$cim,$borito_url,$tartalom)
+    {
+        if ($this->checkRecordExist(
+                'Konyv',
+                'isbn',
+                $isbn) == false) {
+
+            $konyv = array(
+                'cim' => $cim,
+                'isbn' => $isbn,
+                'borito_url' => $borito_url,
+                'tartalom' => $tartalom
+            );
+            $this->db->insert('Konyv', $konyv);
+
+        }
     }
 
 

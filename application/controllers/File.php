@@ -15,6 +15,16 @@ class File extends CI_Controller
         $this->load->helper(array('form', 'url'));
     }
 
+    public function fileRead()
+    {
+        $readFile = read_file('./out/konyv.txt');
+        $splitedReadFile = explode(';', $readFile);
+
+        //@params $isbn,$cim,$borito_url,$tartalom
+        $this->books_model->uj_konyv($splitedReadFile[0], $splitedReadFile[1], $splitedReadFile[2], $splitedReadFile[3]);
+        redirect('/', 'refresh');
+    }
+
     public function fileWrite($id = NULL)
     {
 
@@ -54,7 +64,7 @@ class File extends CI_Controller
     {
 
 
-        $config['upload_path'] = './out/';
+        $config['upload_path'] = './out/boritokep';
         $config['allowed_types'] = 'jpg|gif|png';
         $config['encrypt_name'] = true;
 
@@ -64,6 +74,6 @@ class File extends CI_Controller
             $this->upload->data();
         }
 
-         redirect('/books', 'refresh');
+        redirect('/books', 'refresh');
     }
 }
