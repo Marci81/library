@@ -10,4 +10,4 @@ Szuperadmin: minden adathoz és funkcióhoz korlátlanul hozzáfér, felhas
 6. **Importálási lehetőség** támogatása: az adatok kezelése során bizonyos adatcsoportok importálása biztosított megfelelő felépítésű fájlból.
 7. ~~**Reszponzív design**: a webalkalmazás egyaránt működik asztali gépen/táblagépen/mobil készüléken.~~
 8. ~~**CSS** alkalmazása~~
-9. Fájlkezelés: az oldalon keresztül kell **fájlokat fel/le** tölteni.
+9. ~~Fájlkezelés: az oldalon keresztül kell **fájlokat fel/le** tölteni.~~

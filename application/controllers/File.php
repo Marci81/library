@@ -12,6 +12,7 @@ class File extends CI_Controller
         $this->load->helper('file');
         $this->load->helper('download');
         $this->load->model('books_model');
+        $this->load->helper(array('form', 'url'));
     }
 
     public function fileWrite($id = NULL)
@@ -43,4 +44,26 @@ class File extends CI_Controller
         force_download('./out/file.php', NULL);
     }
 
+    public function upload()
+    {
+        $this->load->view('files/upload');
+    }
+
+
+    public function uploadFile()
+    {
+
+
+        $config['upload_path'] = './out/';
+        $config['allowed_types'] = 'jpg|gif|png';
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('userfile')) {
+            $this->upload->data();
+        }
+
+         redirect('/books', 'refresh');
+    }
 }
