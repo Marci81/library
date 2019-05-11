@@ -11,6 +11,10 @@ class Books extends CI_Controller
         $this->load->model('books_model');
         $this->load->helper('url_helper');
 
+        $this->load->library('ion_auth');
+
+        $this->lang->load('news');
+
 
     }
 
