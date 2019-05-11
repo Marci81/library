@@ -60,9 +60,6 @@ $route['books/delete/(:any)'] = 'books/delete/$1';
 $route['books/rent'] = 'books/rent';
 $route['books/(:any)'] = 'books/show/$1';
 
-//$route['users'] = 'users';
-//$route['users/register'] = 'users/register';
-
 $route['file/filewrite/'] = 'file/filewrite';
 $route['file/fileread/'] = 'file/fileread';
 $route['file/upload/'] = 'file/upload';

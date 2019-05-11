@@ -52,10 +52,22 @@
                     <? endif; ?>
 
                     <?php if ($this->ion_auth->logged_in()): ?>
-                        <a class="login" href="auth/logout">Kijelentkezés</a>
+                        <a class="login">Szia, <?= $this->ion_auth->user()->row()->first_name ?> </a>
                     <? endif; ?>
 
-                    <a class="btn btn-primary" href="<?= site_url('auth/create_user') ?>">Regisztráció</a>
+                    <?php if ($this->ion_auth->logged_in()): ?>
+                        <a class="btn btn-danger" href="auth/logout">Kijelentkezés</a>
+                    <? endif; ?>
+
+                    <?php if (!$this->ion_auth->logged_in()): ?>
+                        <a class="btn btn-primary" href="<?= site_url('auth/create_user') ?>">Regisztráció</a>
+                    <? endif; ?>
+
+                    <?php if ($this->ion_auth->logged_in()): ?>
+
+                    <? endif; ?>
+
+
                 </span>
             </div>
         </div>
